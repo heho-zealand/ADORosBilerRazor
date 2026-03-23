@@ -1,0 +1,29 @@
+﻿@page
+@model ADORosBilerRazor.Pages.Biler.VisAlleBilerModel
+@{
+}
+
+<h1 class="display-3 mb-5">Biler</h1>
+
+<div class="container">
+    <div class="row">
+        @foreach (var elem in Model.Biler)
+        {
+            <div class="col-md-4 p-3">
+                <div class="card shadow" style="width: 18rem;">
+                    <div class="card-body d-flex flex-column">
+                        <h3 class="card-title">@elem.Nummerplade</h3>
+                        <h5>@(elem.Model)</h5>
+                        <h5>@(elem.PrisPrDag) kr./dag</h5>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<p>
+    <a class="btn btn-outline-primary mt-3" asp-page="OpretNyBil"> Opret ny Bil </a>
+</p>
+
+
