@@ -18,5 +18,11 @@ namespace ADORosBilerRazor.Repositories
         {
             return _biler;
         }
+
+        public void AddBil(Bil bil)
+        {
+            _dbServiceBil.Create(bil);
+            _biler = _dbServiceBil.GetAllCars();
+        }
     }
 }

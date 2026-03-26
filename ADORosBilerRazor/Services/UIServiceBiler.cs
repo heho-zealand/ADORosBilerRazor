@@ -1,16 +1,17 @@
 ﻿using ADORosBilerRazor.Models;
+using ADORosBilerRazor.Repositories;
 
 namespace ADORosBilerRazor.Services
 {
     public class UIServiceBiler
     {
         List<Bil> _biler;
-        DBServiceBil _dbService;
+        BilRepo _bilRepo;
 
-        public UIServiceBiler(DBServiceBil dbService)
+        public UIServiceBiler(BilRepo bilRepo)
         {
-            _dbService = dbService;
-            _biler = dbService.GetAllCars();
+            _bilRepo = bilRepo;
+            _biler = bilRepo.GetAllBiler();
         }
 
         public List<Bil> GetAllBiler()
@@ -20,8 +21,8 @@ namespace ADORosBilerRazor.Services
 
         public void Create(Bil bil)
         {
-            _dbService.Create(bil);
-            _biler = _dbService.GetAllCars();
+            _bilRepo.AddBil(bil);
+            _biler = _bilRepo.GetAllBiler();
         }
 
 
